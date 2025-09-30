@@ -32,3 +32,33 @@ nav{
     color: #988686;
     
 }
+/*Colores:
+#a9b39a Yellow
+#5c4e4e Brown
+#988686 Coffee Pot
+#d1d0d0 Pewter
+#000000 Black
+*/
+
+/* Especificidad: 001 (selector de tipo) */
+header {
+    background-color: #a9b39a;
+}
+
+/* Especificidad: 001 (selector de tipo) */
+body {
+    font-family: Verdana, Geneva, sans-serif; 
+    background-color: #d1d0d0;
+    color: #000000; 
+}
+
+/* Especificidad: 001 (selector de tipo) */
+h1, h2 {
+    color: #5c4e4e; 
+}
+
+/* Especificidad: 001 (selector de tipo) */
+nav{     
+    color: #988686;
+    
+}
