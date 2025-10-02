@@ -10,55 +10,58 @@
 #000000 Black
 */
 
-/* Especificidad: 001 (selector de tipo) */
-header {
-    background-color: #a9b39a;
-}
 
-/* Especificidad: 001 (selector de tipo) */
+/* Especificidad = 001 */
 body {
     font-family: Verdana, Geneva, sans-serif; 
     background-color: #d1d0d0;
     color: #000000; 
-}
-
-/* Especificidad: 001 (selector de tipo) */
-h1, h2 {
-    color: #5c4e4e; 
-}
-
-/* Especificidad: 001 (selector de tipo) */
-nav{     
-    color: #988686;
     
 }
-/*Colores:
-#a9b39a Yellow
-#5c4e4e Brown
-#988686 Coffee Pot
-#d1d0d0 Pewter
-#000000 Black
-*/
-
-/* Especificidad: 001 (selector de tipo) */
+/* Especificidad = 001 */
 header {
     background-color: #a9b39a;
-}
-
-/* Especificidad: 001 (selector de tipo) */
-body {
-    font-family: Verdana, Geneva, sans-serif; 
-    background-color: #d1d0d0;
-    color: #000000; 
-}
-
-/* Especificidad: 001 (selector de tipo) */
-h1, h2 {
-    color: #5c4e4e; 
-}
-
-/* Especificidad: 001 (selector de tipo) */
-nav{     
-    color: #988686;
+    /*Hereda color de body*/
     
 }
+
+/* Especificidad = 001 */
+h1, h2, h4 {
+    color: #5c4e4e; 
+    /*Hereda bg color de body*/
+}
+
+/* Especificidad = 001 */
+nav{     
+    color: #988686;
+    /*Hereda bg color de body*/
+    
+}
+
+.active{
+    color: #5c4e4e; 
+    /*Hereda bg color de body*/
+}
+
+/* Especificidad = 012  */
+body > p:first-of-type {
+    font-size: 80%;
+}
+
+header a{
+    color: #5c4e4e;
+    text-decoration: none;
+    
+}
+
+header a:hover{
+    color:#988686
+}
+
+header .active{
+    color: #000000;
+    text-decoration: underline;
+    
+}
+  
+
