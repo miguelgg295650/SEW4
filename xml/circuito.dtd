@@ -1,0 +1,108 @@
+
+
+<!ELEMENT circuito (
+  nombre,
+  longitud_circuito,
+  anchura_media,
+  fecha,
+  hora_inicio,
+  vueltas,
+  localidad,
+  pais,
+  patrocinador,
+  referencias,
+  galeria_fotos,
+  galeria_videos,
+  punto_origen,
+  tramos,
+  resultado_carrera,
+  clasificacion_mundial
+)>
+
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT longitud_circuito (#PCDATA)>
+<!ATTLIST longitud_circuito
+  unidad (m) "m"
+>
+
+<!ELEMENT anchura_media (#PCDATA)>
+<!ATTLIST anchura_media
+  unidad (m) "m"
+>
+
+<!-- Fecha con año fijado a 2025 -->
+<!ELEMENT fecha (#PCDATA)>
+<!ATTLIST fecha
+  formato CDATA   "DD-MM-YYYY"
+>
+
+<!-- Hora de inicio en horario español (24h) -->
+<!ELEMENT hora_inicio (#PCDATA)>
+<!ATTLIST hora_inicio
+  tz      CDATA   "Europe/Madrid"
+  formato CDATA   "HH:MM"
+>
+
+<!ELEMENT vueltas (#PCDATA)>
+
+<!ELEMENT localidad (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT patrocinador (#PCDATA)>
+
+<!-- Referencias: al menos 3 -->
+<!ELEMENT referencias (referencia, referencia, referencia, referencia*)>
+<!ELEMENT referencia (#PCDATA)>
+
+<!-- Galería de fotos: mínimo 1, máximo 5 -->
+<!ELEMENT galeria_fotos (foto, foto?, foto?, foto?, foto?)>
+<!ELEMENT foto EMPTY>
+<!ATTLIST foto
+  archivo CDATA #REQUIRED
+  titulo  CDATA #IMPLIED
+>
+
+<!-- Galería de vídeos: mínimo 1, máximo 3 -->
+<!ELEMENT galeria_videos (video, video?, video?)>
+<!ELEMENT video EMPTY>
+<!ATTLIST video
+  archivo CDATA #REQUIRED 
+  titulo  CDATA #IMPLIED
+  formato CDATA #IMPLIED
+>
+
+<!-- Punto origen (línea de salida, centro de pista) -->
+<!ELEMENT punto_origen (latitud,longitud,altitud)>
+<!ELEMENT latitud  (#PCDATA)>
+<!ATTLIST latitud  unidad (deg) "deg">
+<!ELEMENT longitud (#PCDATA)>
+<!ATTLIST longitud unidad (deg) "deg">
+<!ELEMENT altitud  (#PCDATA)>
+<!ATTLIST altitud  unidad (m)   "m">
+
+<!-- Tramos del circuito -->
+<!ELEMENT tramos (tramo+)>
+<!ELEMENT tramo (distancia, punto_final, numero_sector)>
+<!ELEMENT distancia (#PCDATA)>
+<!ATTLIST distancia
+  unidad (m)    "m"
+>
+<!ELEMENT punto_final (longitud, latitud, altitud)>
+<!ELEMENT numero_sector (#PCDATA)>
+
+<!-- Resultado de la carrera -->
+<!ELEMENT resultado_carrera (vencedor, tiempo_total)>
+<!ELEMENT vencedor (#PCDATA)>
+<!ELEMENT tiempo_total (#PCDATA)>
+<!ATTLIST tiempo_total
+  formato CDATA "MM:SS.mmm"
+>
+
+<!-- Top 3 del mundial tras la carrera -->
+<!ELEMENT clasificacion_mundial (piloto, piloto, piloto)>
+<!ELEMENT piloto EMPTY>
+<!ATTLIST piloto
+  posicion (1|2|3) #REQUIRED
+  nombre   CDATA   #REQUIRED
+  puntos   CDATA   #IMPLIED
+>
