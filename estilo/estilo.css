@@ -34,6 +34,7 @@ h1, h2, h4 {
 /* Especificidad = 001 */
 nav{     
     color: #988686;
+    font-size: larger;
     /*Hereda bg color de body*/
     
 }
@@ -48,17 +49,25 @@ body > p:first-of-type {
     font-size: 80%;
 }
 
-header a{
+a{
     color: #5c4e4e;
     text-decoration: none;
     
 }
 
-header a:hover{
+ a:visited{
+    color: #5c4e4e;
+    text-decoration: none;
+    
+}
+
+
+ a:hover{
     color:#988686
 }
 
-header .active{
+
+ .active{
     color: #000000;
     text-decoration: underline;
     

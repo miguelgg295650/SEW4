@@ -11,9 +11,9 @@
    <pais>España</pais>
    <patrocinador>Fira Barcelona</patrocinador>
    <referencias>
-      <referencia />
-      <referencia />
-      <referencia />
+      <referencia> https://www.circuitcat.com/es/</referencia>
+      <referencia> https://es.wikipedia.org/wiki/Circuito_de_Barcelona-Catalu%C3%B1a</referencia>
+      <referencia> https://www.motogp.com/es/calendar/2025/event/catalunya/a4e866f4-8dfd-44fa-b651-05291983be13?tab=overview</referencia>
    </referencias>
    <galeria_fotos>
       <foto archivo="multimedia/circuito.png" titulo="Panorámica de la pista" />
@@ -286,9 +286,10 @@
       <vencedor>Alex Marquez</vencedor>
       <tiempo_total formato="MM:SS.mmm">40:14.093</tiempo_total>
    </resultado_carrera>
+   
    <clasificacion_mundial>
-      <piloto posicion="1" nombre="Alex Marquez" />
-      <piloto posicion="2" nombre="Marc Marquez" />
-      <piloto posicion="3" nombre="Enea Bastianini" />
+      <piloto posicion="1"> Alex Marquez" </piloto>
+      <piloto posicion="2">  Marc Marquez </piloto>
+      <piloto posicion="3" > Enea Bastianini </piloto>
    </clasificacion_mundial>
 </circuito>

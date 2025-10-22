@@ -100,9 +100,7 @@
 
 <!-- Top 3 del mundial tras la carrera -->
 <!ELEMENT clasificacion_mundial (piloto, piloto, piloto)>
-<!ELEMENT piloto EMPTY>
+<!ELEMENT piloto (#PCDATA)>
 <!ATTLIST piloto
   posicion (1|2|3) #REQUIRED
-  nombre   CDATA   #REQUIRED
-  puntos   CDATA   #IMPLIED
 >

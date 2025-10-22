@@ -1,9 +1,47 @@
-header{
-   display: flex;
+header {
+    display: flex;
 }
-nav{
+
+nav {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: auto;
+    gap: 1.5em;
+}
+
+/* 📱 Media query para dispositivos pequeños */
+@media (min-width: 320px) and (max-width: 799px) {
+
+    
+    header {
+        flex-direction: column; 
+        align-items: center;    
+    }
+
+   
+    header h1,
+    header nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+    
+    nav {
+        flex-direction: column; 
+        gap: 1em;              
+    }
+
+    body > p:first-of-type {
+        display: none; /* el párrafo de migas no se muestra en móviles */
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    audio {
+        width: 100%;
+    }
 }
