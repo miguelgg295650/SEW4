@@ -1,0 +1,8 @@
+main  {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    grid-template-rows: repeat(3, auto);   /* 3 filas automáticas */
+    gap: 1rem; /* espacio entre las cartas */
+    justify-items: center; /* centra el contenido en cada celda (opcional) */
+  }
+  
