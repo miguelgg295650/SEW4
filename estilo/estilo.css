@@ -72,5 +72,34 @@ a{
     text-decoration: underline;
     
 }
+
+
+/* Especificidad = 001 */
+button {
+    background-color: #a9b39a;
+    color: #000000;
+    border: 0.15em solid #5c4e4e;
+    border-radius: 0.5em;
+    padding: 0.5em 1.5em;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+  
+  /* Especificidad = 011 */
+  button:hover {
+    background-color: #988686;
+    color: #ffffff;
+    transform: scale(1.05);
+  }
+  
+  /* Especificidad = 011 */
+  button:active {
+    background-color: #5c4e4e;
+    color: #ffffff;
+    transform: scale(0.97);
+  }
+  
   
 
