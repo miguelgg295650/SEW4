@@ -3,10 +3,9 @@ class Memoria {
     constructor() {}
   
     voltearCarta(carta) {
-      carta.dataset.estado = "volteada";
+      carta.dataset.state = 'flip'; 
     }
   }
   
-  // instancia global para usar en los onclick de las cartas
-  const memoria = new Memoria();
+ 
   
