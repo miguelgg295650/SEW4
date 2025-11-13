@@ -4,10 +4,21 @@ class Memoria {
       this.primera_carta = null;
       this.segunda_carta = null;
 
+      this.barajarCartas();
+      this.tablero_bloqueado = false;
+
     }
   
     voltearCarta(carta) {
-      carta.dataset.state = 'flip'; 
+      if(this.tablero_bloqueado === false && carta.dataset.state !== 'revelada'  && carta.dataset.state !== 'flip'){
+        carta.dataset.state = 'flip'; 
+        if(this.primera_carta === null){
+          this.primera_carta = carta;
+        }else{
+          this.segunda_carta = carta;
+          this.comprobarPareja();
+        }
+      }
     }
 
     barajarCartas(){
@@ -26,7 +37,7 @@ class Memoria {
     }
 
     reiniciarAtributos(){
-      this.tablero_bloqueado = true;
+      this.tablero_bloqueado = false;
       this.primera_carta = null;
       this.segunda_carta = null;
     }
@@ -49,21 +60,30 @@ class Memoria {
           return false;
         }
       }
+      alert("¡Has ganado!");
     }
 
     cubrirCartas(){
       this.tablero_bloqueado = true;
 
-      setTimeout(1500);
+      setTimeout (() => {
       this.primera_carta.dataset.state = '';
       this.segunda_carta.dataset.state = '';
 
       this.reiniciarAtributos();
+      },1500);
     }
 
     comprobarPareja(){
-      this.primera_carta.
+      const img1 = this.primera_carta.children[1];
+      const img2 = this.segunda_carta.children[1];
+    
+      const src1 = img1.getAttribute("src");
+      const src2 = img2.getAttribute("src");
+
+      src1 === src2 ? this.deshabilitarCartas() : this.cubrirCartas();
     }
+  }
   
  
   
