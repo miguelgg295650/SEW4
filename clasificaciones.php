@@ -2,10 +2,12 @@
 class Clasificacion{
     private $documento = "xml/circuitoEsquema.xml";
 
-    $datos = file_get_contents($archivo);
+     private $datos;
+
+     public function consultar(){
+        $this->$datos = file_get_contents($this->$archivo);
+    }
 }
-
-
 ?>
 <!DOCTYPE HTML>
 
