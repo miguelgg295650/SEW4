@@ -53,8 +53,8 @@ if (count($_POST) > 0) {
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" href="multimedia/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
 
 </head>
 
@@ -63,15 +63,17 @@ if (count($_POST) > 0) {
     <header>
         <h1><a href="index.html"> MotoGP Desktop</a></h1>
         <nav>
-            <a href="../index.html" class="active"  title="Pagina principal de MotoGP Desktop">Inicio</a>
-            <a href="../piloto.html" title="Brad Binder">Piloto</a>
-            <a href="../circuito.html" title="Circuito de Barcelona">Circuito</a>
-            <a href="../meteorologia.html" title="Pronostico del tiempo para el circuito MotoGP Desktop">Meteorologia</a>
-            <a href="../clasificaciones.html" title="Clasificaciones MotoGP Desktop">Clasificaciones</a>
-            <a href="../juegos.html" title="Juegos MotoGP Desktop">Juegos</a>
-            <a href="../ayuda.html" title="Ayuda para el uso de MotoGP Desktop">Ayuda</a>
+            <a href="index.html" class="active"  title="Pagina principal de MotoGP Desktop">Inicio</a>
+            <a href="piloto.html" title="Brad Binder">Piloto</a>
+            <a href="circuito.html" title="Circuito de Barcelona">Circuito</a>
+            <a href="meteorologia.html" title="Pronostico del tiempo para el circuito MotoGP Desktop">Meteorologia</a>
+            <a href="clasificaciones.html" title="Clasificaciones MotoGP Desktop">Clasificaciones</a>
+            <a href="juegos.html" class="active" title="Juegos MotoGP Desktop">Juegos</a>
+            <a href="ayuda.html" title="Ayuda para el uso de MotoGP Desktop">Ayuda</a>
         </nav>
     </header>
+
+    <p>Estás en: <a href="index.html">Inicio</a> >> <a href="juegos.html">Juegos</a> >> <strong>Cronómetro PHP</strong></p>
 
     <main>
         <h3>Cronometro</h3>
