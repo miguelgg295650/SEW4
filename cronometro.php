@@ -67,7 +67,7 @@ if (count($_POST) > 0) {
             <a href="piloto.html" title="Brad Binder">Piloto</a>
             <a href="circuito.html" title="Circuito de Barcelona">Circuito</a>
             <a href="meteorologia.html" title="Pronostico del tiempo para el circuito MotoGP Desktop">Meteorologia</a>
-            <a href="clasificaciones.html" title="Clasificaciones MotoGP Desktop">Clasificaciones</a>
+            <a href="clasificaciones.php" title="Clasificaciones MotoGP Desktop">Clasificaciones</a>
             <a href="juegos.html" class="active" title="Juegos MotoGP Desktop">Juegos</a>
             <a href="ayuda.html" title="Ayuda para el uso de MotoGP Desktop">Ayuda</a>
         </nav>
