@@ -231,7 +231,7 @@
          <punto_final>
             <longitud unidad="deg">2.25914460498152</longitud>
             <latitud unidad="deg">41.572994244335</latitud>
-            <altitud unidad="m">175</altitud>
+            <altitud unidad="m">120</altitud>
          </punto_final>
          <numero_sector>3</numero_sector>
       </tramo>
@@ -298,7 +298,7 @@
    </resultado_carrera>
    
    <clasificacion_mundial>
-      <piloto posicion="1"> Alex Marquez" </piloto>
+      <piloto posicion="1"> Alex Marquez </piloto>
       <piloto posicion="2">  Marc Marquez </piloto>
       <piloto posicion="3" > Enea Bastianini </piloto>
    </clasificacion_mundial>
