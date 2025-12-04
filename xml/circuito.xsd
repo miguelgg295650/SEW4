@@ -1,262 +1,365 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://tempuri.org/circuito" elementFormDefault="qualified" targetNamespace="http://tempuri.org/circuito" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="circuito">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="nombre" />
-				<xs:element ref="longitud_circuito" />
-				<xs:element ref="anchura_media" />
-				<xs:element ref="fecha" />
-				<xs:element ref="hora_inicio" />
-				<xs:element ref="vueltas" />
-				<xs:element ref="localidad" />
-				<xs:element ref="pais" />
-				<xs:element ref="patrocinador" />
-				<xs:element ref="referencias" />
-				<xs:element ref="galeria_fotos" />
-				<xs:element ref="galeria_videos" />
-				<xs:element ref="punto_origen" />
-				<xs:element ref="tramos" />
-				<xs:element ref="resultado_carrera" />
-				<xs:element ref="clasificacion_mundial" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="nombre" type="xs:string" />
-	<xs:element name="longitud_circuito">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="m" name="unidad">
-						<xs:simpleType>
-							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="m" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="anchura_media">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="m" name="unidad">
-						<xs:simpleType>
-							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="m" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="fecha">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="DD-MM-YYYY" name="formato" type="xs:string" />
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="hora_inicio">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="Europe/Madrid" name="tz" type="xs:string" />
-					<xs:attribute default="HH:MM" name="formato" type="xs:string" />
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="vueltas" type="xs:string" />
-	<xs:element name="localidad" type="xs:string" />
-	<xs:element name="pais" type="xs:string" />
-	<xs:element name="patrocinador" type="xs:string" />
-	<xs:element name="referencias">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="referencia" />
-				<xs:element ref="referencia" />
-				<xs:element ref="referencia" />
-				<xs:element minOccurs="0" maxOccurs="unbounded" ref="referencia" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="referencia" type="xs:string" />
-	<xs:element name="galeria_fotos">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="foto" />
-				<xs:element minOccurs="0" maxOccurs="1" ref="foto" />
-				<xs:element minOccurs="0" maxOccurs="1" ref="foto" />
-				<xs:element minOccurs="0" maxOccurs="1" ref="foto" />
-				<xs:element minOccurs="0" maxOccurs="1" ref="foto" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="foto">
-		<xs:complexType>
-			<xs:attribute name="archivo" type="xs:string" use="required" />
-			<xs:attribute name="titulo" type="xs:string" />
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="galeria_videos">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="video" />
-				<xs:element minOccurs="0" maxOccurs="1" ref="video" />
-				<xs:element minOccurs="0" maxOccurs="1" ref="video" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="video">
-		<xs:complexType>
-			<xs:attribute name="archivo" type="xs:string" use="required" />
-			<xs:attribute name="titulo" type="xs:string" />
-			<xs:attribute name="formato" type="xs:string" />
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="punto_origen">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="latitud" />
-				<xs:element ref="longitud" />
-				<xs:element ref="altitud" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="latitud">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="deg" name="unidad">
-						<xs:simpleType>
-							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="deg" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="longitud">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="deg" name="unidad">
-						<xs:simpleType>
-							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="deg" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="altitud">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="m" name="unidad">
-						<xs:simpleType>
-							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="m" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="tramos">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element minOccurs="1" maxOccurs="unbounded" ref="tramo" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="tramo">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="distancia" />
-				<xs:element ref="punto_final" />
-				<xs:element ref="numero_sector" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="distancia">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="m" name="unidad">
-						<xs:simpleType>
-							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="m" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="punto_final">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="longitud" />
-				<xs:element ref="latitud" />
-				<xs:element ref="altitud" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="numero_sector" type="xs:string" />
-	<xs:element name="resultado_carrera">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="vencedor" />
-				<xs:element ref="tiempo_total" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="vencedor" type="xs:string" />
-	<xs:element name="tiempo_total">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute default="MM:SS.mmm" name="formato" type="xs:string" />
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="clasificacion_mundial">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="piloto" />
-				<xs:element ref="piloto" />
-				<xs:element ref="piloto" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="piloto">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute name="posicion" use="required">
-						<xs:simpleType>
-							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="1" />
-								<xs:enumeration value="2" />
-								<xs:enumeration value="3" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
+<xs:schema 
+    xmlns="http://www.uniovi.es"
+    targetNamespace="http://www.uniovi.es"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- latitud entre -90 y 90 -->
+    <xs:simpleType name="latitudType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-90"/>
+            <xs:maxInclusive value="90"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- longitud entre -180 y 180 -->
+    <xs:simpleType name="longitudType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-180"/>
+            <xs:maxInclusive value="180"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- altitud >= 0 -->
+    <xs:simpleType name="altitudType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- distancia o longitud positiva -->
+    <xs:simpleType name="distanciaType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.01"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- fecha DD-MM-YYYY -->
+    <xs:simpleType name="fechaType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}-\d{2}-\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- hora HH:MM -->
+    <xs:simpleType name="horaType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([01]\d|2[0-3]):[0-5]\d"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- tiempo MM:SS.mmm -->
+    <xs:simpleType name="tiempoType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-5]\d:[0-5]\d\.\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- URL válida -->
+    <xs:simpleType name="urlType">
+        <xs:restriction base="xs:anyURI"/>
+    </xs:simpleType>
+
+    <!-- ============================================================ -->
+
+    <xs:element name="circuito">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre" />
+                <xs:element ref="longitud_circuito" />
+                <xs:element ref="anchura_media" />
+                <xs:element ref="fecha" />
+                <xs:element ref="hora_inicio" />
+                <xs:element ref="vueltas" />
+                <xs:element ref="localidad" />
+                <xs:element ref="pais" />
+                <xs:element ref="patrocinador" />
+                <xs:element ref="referencias" />
+                <xs:element ref="galeria_fotos" />
+                <xs:element ref="galeria_videos" />
+                <xs:element ref="punto_origen" />
+                <xs:element ref="tramos" />
+                <xs:element ref="resultado_carrera" />
+                <xs:element ref="clasificacion_mundial" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="nombre" type="xs:string" />
+
+    <xs:element name="longitud_circuito">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="distanciaType">
+                    <xs:attribute default="m" name="unidad">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:NMTOKEN">
+                                <xs:enumeration value="m" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="anchura_media">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:decimal">
+                    <xs:attribute default="m" name="unidad">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:NMTOKEN">
+                                <xs:enumeration value="m" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="fecha">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="fechaType">
+                    <xs:attribute default="DD-MM-YYYY" name="formato" type="xs:string" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="hora_inicio">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="horaType">
+                    <xs:attribute default="Europe/Madrid" name="tz" type="xs:string" />
+                    <xs:attribute default="HH:MM" name="formato" type="xs:string" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="vueltas">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="200"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="localidad" type="xs:string" />
+    <xs:element name="pais" type="xs:string" />
+    <xs:element name="patrocinador" type="xs:string" />
+
+    <xs:element name="referencias">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="referencia" />
+                <xs:element ref="referencia" />
+                <xs:element ref="referencia" />
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="referencia" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="referencia" type="urlType" />
+
+    <xs:element name="galeria_fotos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="foto" />
+                <xs:element minOccurs="0" maxOccurs="1" ref="foto" />
+                <xs:element minOccurs="0" maxOccurs="1" ref="foto" />
+                <xs:element minOccurs="0" maxOccurs="1" ref="foto" />
+                <xs:element minOccurs="0" maxOccurs="1" ref="foto" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="foto">
+        <xs:complexType>
+            <xs:attribute name="archivo" type="xs:string" use="required" />
+            <xs:attribute name="titulo" type="xs:string" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="galeria_videos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="video" />
+                <xs:element minOccurs="0" maxOccurs="1" ref="video" />
+                <xs:element minOccurs="0" maxOccurs="1" ref="video" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="video">
+        <xs:complexType>
+            <xs:attribute name="archivo" type="xs:string" use="required" />
+            <xs:attribute name="titulo" type="xs:string" />
+            <xs:attribute name="formato" type="xs:string" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="punto_origen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="latitud" />
+                <xs:element ref="longitud" />
+                <xs:element ref="altitud" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="latitud">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="latitudType">
+                    <xs:attribute default="deg" name="unidad">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:NMTOKEN">
+                                <xs:enumeration value="deg" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="longitud">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="longitudType">
+                    <xs:attribute default="deg" name="unidad">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:NMTOKEN">
+                                <xs:enumeration value="deg" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="altitud">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="altitudType">
+                    <xs:attribute default="m" name="unidad">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:NMTOKEN">
+                                <xs:enumeration value="m" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tramos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" ref="tramo" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tramo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="distancia" />
+                <xs:element ref="punto_final" />
+                <xs:element ref="numero_sector" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="distancia">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="distanciaType">
+                    <xs:attribute default="m" name="unidad">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:NMTOKEN">
+                                <xs:enumeration value="m" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="punto_final">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="longitud" />
+                <xs:element ref="latitud" />
+                <xs:element ref="altitud" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="numero_sector">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="3"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="resultado_carrera">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="vencedor" />
+                <xs:element ref="tiempo_total" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="vencedor" type="xs:string" />
+
+    <xs:element name="tiempo_total">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="tiempoType">
+                    <xs:attribute default="MM:SS.mmm" name="formato" type="xs:string" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="clasificacion_mundial">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="piloto" />
+                <xs:element ref="piloto" />
+                <xs:element ref="piloto" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="piloto">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="posicion" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:NMTOKEN">
+                                <xs:enumeration value="1" />
+                                <xs:enumeration value="2" />
+                                <xs:enumeration value="3" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

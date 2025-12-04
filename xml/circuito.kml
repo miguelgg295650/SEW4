@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+    <name>Circuito</name>
+
+    <Placemark>
+        <name>1</name>
+        <Point>
+            <coordinates>2.261219049136154,41.57002465601352,138</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>2</name>
+        <Point>
+            <coordinates>2.256679704201454,41.56465853777912,139</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>3</name>
+        <Point>
+            <coordinates>2.256186175274648,41.56463748454156,141</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>4</name>
+        <Point>
+            <coordinates>2.255609440148632,41.56492641992731,140</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>5</name>
+        <Point>
+            <coordinates>2.253779170625512,41.56419613216192,138</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>6</name>
+        <Point>
+            <coordinates>2.252693111287309,41.56433108152906,133</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>7</name>
+        <Point>
+            <coordinates>2.252067273628033,41.56537168027547,133</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>8</name>
+        <Point>
+            <coordinates>2.254027084530357,41.56830881269875,131</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>9</name>
+        <Point>
+            <coordinates>2.254823456763995,41.56842704507736,131</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>10</name>
+        <Point>
+            <coordinates>2.255422222915775,41.56786895981264,136</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>11</name>
+        <Point>
+            <coordinates>2.255190647247654,41.56708109540366,132</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>12</name>
+        <Point>
+            <coordinates>2.25395104161727,41.56568478433326,119</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>13</name>
+        <Point>
+            <coordinates>2.254306043741767,41.56527116016584,116</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>14</name>
+        <Point>
+            <coordinates>2.25654379445078,41.56604424313633,115</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>15</name>
+        <Point>
+            <coordinates>2.257848140871432,41.56736826657785,126</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>16</name>
+        <Point>
+            <coordinates>2.257341726387685,41.56786187687129,129</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>17</name>
+        <Point>
+            <coordinates>2.25599187158585,41.56986775887218,133</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>18</name>
+        <Point>
+            <coordinates>2.256229271998957,41.57049359166919,133</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>19</name>
+        <Point>
+            <coordinates>2.261969855201134,41.57278271097621,133</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>20</name>
+        <Point>
+            <coordinates>2.261963258865496,41.57307743998499,132</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>21</name>
+        <Point>
+            <coordinates>2.261130115970962,41.57342762391566,127</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>22</name>
+        <Point>
+            <coordinates>2.259631917041125,41.57284610652742,124</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>23</name>
+        <Point>
+            <coordinates>2.25914460498152,41.572994244335,175</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>24</name>
+        <Point>
+            <coordinates>2.258864781010566,41.57354203793725,113</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>25</name>
+        <Point>
+            <coordinates>2.260776273393843,41.57475026276352,116</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>26</name>
+        <Point>
+            <coordinates>2.261600995435922,41.57464302396841,114</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>27</name>
+        <Point>
+            <coordinates>2.263464426736366,41.57371680434058,120</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>28</name>
+        <Point>
+            <coordinates>2.263651406543723,41.57301434252386,134</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>29</name>
+        <Point>
+            <coordinates>2.261219049136154,41.57002465601352,138</coordinates>
+        </Point>
+    </Placemark>
+
+    <Placemark>
+        <name>Línea del circuito</name>
+        <Style>
+            <LineStyle>
+                <color>ff0000ff</color>
+                <width>3</width>
+            </LineStyle>
+        </Style>
+        <LineString>
+            <coordinates>
+                2.261219049136154,41.57002465601352,138
+                2.256679704201454,41.56465853777912,139
+                2.256186175274648,41.56463748454156,141
+                2.255609440148632,41.56492641992731,140
+                2.253779170625512,41.56419613216192,138
+                2.252693111287309,41.56433108152906,133
+                2.252067273628033,41.56537168027547,133
+                2.254027084530357,41.56830881269875,131
+                2.254823456763995,41.56842704507736,131
+                2.255422222915775,41.56786895981264,136
+                2.255190647247654,41.56708109540366,132
+                2.25395104161727,41.56568478433326,119
+                2.254306043741767,41.56527116016584,116
+                2.25654379445078,41.56604424313633,115
+                2.257848140871432,41.56736826657785,126
+                2.257341726387685,41.56786187687129,129
+                2.25599187158585,41.56986775887218,133
+                2.256229271998957,41.57049359166919,133
+                2.261969855201134,41.57278271097621,133
+                2.261963258865496,41.57307743998499,132
+                2.261130115970962,41.57342762391566,127
+                2.259631917041125,41.57284610652742,124
+                2.25914460498152,41.572994244335,175
+                2.258864781010566,41.57354203793725,113
+                2.260776273393843,41.57475026276352,116
+                2.261600995435922,41.57464302396841,114
+                2.263464426736366,41.57371680434058,120
+                2.263651406543723,41.57301434252386,134
+                2.261219049136154,41.57002465601352,138
+            </coordinates>
+        </LineString>
+    </Placemark>
+
+</Document>
+</kml>

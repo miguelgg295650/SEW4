@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE circuito SYSTEM "circuito.dtd">
-<circuito>
+<circuito
+    xmlns="http://www.uniovi.es"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
+
    <nombre>Circuit de Barcelona-Catalunya</nombre>
    <longitud_circuito unidad="m">4657</longitud_circuito>
    <anchura_media unidad="m">11.2</anchura_media>
