@@ -1,6 +1,7 @@
 <?php
 $errorFormulario = false;
 
+$errorNombre = "";
 $errorProfesion = "";
 $errorEdad = "";
 $errorGenero = "";
@@ -17,6 +18,11 @@ $formularioGET = "";
 if (count($_GET) > 0) {
 
     $formularioGET = $_GET;
+
+    if ($_GET["nombre"] == "") {
+        $errorNombre = " *";
+        $errorFormulario = true;
+    }
 
     if ($_GET["profesion"] == "") {
         $errorProfesion = " *";
@@ -72,6 +78,12 @@ if (count($_GET) > 0) {
 
 <form action="#" method="get" name="formulario">
 
+    <p>Nombre</p>
+    <p>
+        <input type="text" name="nombre"/>
+        <span><?php echo $errorNombre; ?></span>
+    </p>
+
     <p>Profesión</p>
     <p>
         <input type="text" name="profesion"/>
@@ -88,6 +100,7 @@ if (count($_GET) > 0) {
     <p>
         <input type="radio" name="genero" value="H"/> Hombre
         <input type="radio" name="genero" value="M"/> Mujer
+        <input type="radio" name="genero" value="O"/> Otro
         <span><?php echo $errorGenero; ?></span>
     </p>
 
@@ -141,5 +154,6 @@ if (count($_GET) > 0) {
     <p>
         <input type="submit" value="Enviar"/>
     </p>
-
+    
+    
 </form>
