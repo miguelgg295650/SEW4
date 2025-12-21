@@ -1,0 +1,24 @@
+ID,PROFESION,EDAD,ID_GENERO,PERICIA_INFORMATICA,,,
+1,Estudiante,20,1,10,,,
+2,enfermera,58,2,3,,,
+3,Estudiante,21,1,8,,,
+4,Jubilado,67,1,1,,,
+5,Estudiante,16,2,7,,,
+6,Repartidor,33,1,5,,,
+7,ama de casa,60,2,1,,,
+ID_RESULTADO,ID_USUARIO,ID_DISPOSITIVO,TIEMPO_SEGUNDOS,COMPLETADA,COMENTARIOS_USUARIO,PROPUESTAS_MEJORA,VALORACION
+1,1,2,374,1,Problemas de adaptabilidad en las tablas y cartas del juego de memoria,un mejor redimensionamiento de la pagina para que las tablas no se salgan,9
+2,2,3,1450,1,Dificultad inicial de orientación y de entendimiento del contenido,Agrupar el contenido mas claramente,6
+3,3,1,1120,1,no entendí como jugar al juego de las cartas,añadir explicacion de que hay que buscar parejas en dicho juego,8
+4,4,2,1890,1,Buena página pero una  mala paleta de colores,Mejorar el contraste de colores de la página,5
+5,5,2,870,1,Uso correcto sin incidencias,Sin objeciones,8
+6,6,1,620,1,el mensaje de alerta de juego de cartas es muy cutre y no se entiende,mejorarlo,9
+7,7,3,1600,1,no fui capaz de encontrar la poblacion,facilitar el acceso a la informacion de la poblacion de Barcelona,6
+ID_OBSERVACION,ID_USUARIO,COMENTARIO,,,,,
+1,1,Fluidez por la página y resolución del test en poco tiempo,,,,,
+2,2,Problemas de navegacion al inicio,,,,,
+3,3,sin mayor problema menos por alguna indicacion,,,,,
+4,4,múltiples quejas y mala desenvoltura por la página,,,,,
+5,5,sin mayor problema para resolver las preguntas,,,,,
+6,6,Navegación regular con problemas leves,,,,,
+7,7,requirió de ayuda para encontrar alguna respuesta,,,,,
