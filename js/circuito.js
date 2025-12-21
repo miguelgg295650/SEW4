@@ -38,7 +38,7 @@ class Circuito {
         const parser = new DOMParser();
         const doc = parser.parseFromString(textoHTML, "text/html");
 
-        const mainOrigen = doc.querySelector("main.info-circuito");
+        const mainOrigen = doc.querySelector("main");
 
         const sectionDestino = document.querySelector("main section");
 
@@ -102,25 +102,35 @@ class Circuito {
                 section.appendChild(img);
             });
 
-            secOrig.querySelectorAll("video").forEach(videoOrig => {
-                const video = document.createElement("video");
-                video.controls = true;
+            secOrig.querySelectorAll("figure").forEach(figureOrig => {
 
-                videoOrig.querySelectorAll("source").forEach(sourceOrig => {
-                    const source = document.createElement("source");
-                    source.src = sourceOrig.getAttribute("src");
-                    source.type = sourceOrig.getAttribute("type");
-                    video.appendChild(source);
-                });
+                const figure = document.createElement("figure");
 
-                section.appendChild(video);
+                const videoOrig = figureOrig.querySelector("video");
+                if (videoOrig) {
+                    const video = document.createElement("video");
+                    video.controls = true;
+
+                    videoOrig.querySelectorAll("source").forEach(sourceOrig => {
+                        const source = document.createElement("source");
+                        source.src = sourceOrig.getAttribute("src");
+                        source.type = sourceOrig.getAttribute("type");
+                        video.appendChild(source);
+                    });
+
+                    figure.appendChild(video);
+                }
+
+                const figcaptionOrig = figureOrig.querySelector("figcaption");
+                if (figcaptionOrig) {
+                    const figcaption = document.createElement("figcaption");
+                    figcaption.textContent = figcaptionOrig.textContent;
+                    figure.appendChild(figcaption);
+                }
+
+                section.appendChild(figure);
             });
 
-            secOrig.querySelectorAll("figcaption").forEach(figOrig => {
-                const figcaption = document.createElement("figcaption");
-                figcaption.textContent = figOrig.textContent;
-                section.appendChild(figcaption);
-            });
 
             sectionDestino.appendChild(section);
         });

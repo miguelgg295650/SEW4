@@ -20,7 +20,7 @@ class Html:
     <link rel="stylesheet" href="estilo/estilo.css">
 </head>
 <body>
-<main class="info-circuito">
+<main>
 ''')
 
     def end(self):
@@ -36,26 +36,17 @@ class Html:
     def h2(self, text):
         self.f.write(f"<h2>{text}</h2>\n")
 
-    def p(self, text, css_class=None):
-        if css_class:
-            self.f.write(f'<p class="{css_class}">{text}</p>\n')
-        else:
-            self.f.write(f"<p>{text}</p>\n")
+    def p(self, text):
+        self.f.write(f"<p>{text}</p>\n")
 
-    def open_section(self, css_class=None):
-        if css_class:
-            self.f.write(f'<section class="{css_class}">\n')
-        else:
-            self.f.write("<section>\n")
+    def open_section(self):
+        self.f.write("<section>\n")
 
     def close_section(self):
         self.f.write("</section>\n")
 
-    def open_ul(self, css_class=None):
-        if css_class:
-            self.f.write(f'<ul class="{css_class}">\n')
-        else:
-            self.f.write("<ul>\n")
+    def open_ul(self):
+        self.f.write("<ul>\n")
 
     def close_ul(self):
         self.f.write("</ul>\n")
@@ -68,7 +59,7 @@ class Html:
 
     def video(self, src, fmt, title):
         mime = f"video/{fmt}" if fmt else "video/mp4"
-        self.f.write(f'''<figure class="video-item">
+        self.f.write(f'''<figure>
     <video controls>
         <source src="{src}" type="{mime}">
         Tu navegador no soporta el elemento de vídeo.
@@ -118,7 +109,7 @@ def main():
 
         html.h1(nombre)
 
-        html.open_section("datos-basicos")
+        html.open_section()
         html.h2("Datos básicos")
         html.p(f"Localidad: {localidad} ({pais})")
         html.p(f"Patrocinador: {patrocinador}")
@@ -129,30 +120,29 @@ def main():
         html.p(f"Número de vueltas: {vueltas}")
         html.close_section()
 
-        html.open_section("referencias")
+        html.open_section()
         html.h2("Referencias")
-        html.open_ul("lista-referencias")
+        html.open_ul()
         for ref in referencias:
             url = ref.text.strip()
             html.li(f'<a href="{url}" target="_blank" rel="noopener noreferrer">{url}</a>')
         html.close_ul()
         html.close_section()
 
-        html.open_section("galeria-fotos")
+        html.open_section()
         html.h2("Galería de fotos")
-        html.open_ul("lista-fotos")
+        html.open_ul()
         for foto in fotos:
             archivo = foto.get("archivo", "").strip()
-            titulo = (foto.get("titulo") or "").strip()
-            if not titulo:
-                titulo = "Foto del circuito"
-            f.write('<li class="foto-item">')
+            titulo = (foto.get("titulo") or "Foto del circuito").strip()
+            f.write("<li>\n")
             html.img(archivo, titulo)
-            f.write(f"<p>{titulo}</p></li>\n")
+            html.p(titulo)
+            f.write("</li>\n")
         html.close_ul()
         html.close_section()
 
-        html.open_section("galeria-videos")
+        html.open_section()
         html.h2("Galería de vídeos")
         for video in videos:
             archivo = video.get("archivo", "").strip()
@@ -161,15 +151,15 @@ def main():
             html.video(archivo, formato, titulo)
         html.close_section()
 
-        html.open_section("resultado-carrera")
+        html.open_section()
         html.h2("Resultado de la carrera")
         html.p(f"Vencedor: {vencedor}")
         html.p(f"Tiempo total: {tiempo_total}")
         html.close_section()
 
-        html.open_section("clasificacion-mundial")
+        html.open_section()
         html.h2("Top 3 del mundial tras la carrera")
-        html.open_ul("lista-clasificacion")
+        html.open_ul()
         for piloto in pilotos:
             pos = piloto.get("posicion", "").strip()
             nombre_piloto = piloto.text.strip()

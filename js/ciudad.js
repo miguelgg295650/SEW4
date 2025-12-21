@@ -31,25 +31,29 @@ class Ciudad {
         return `Gentilicio: ${this.#gentilicio} - Población: ${this.#poblacion} habitantes`;
     }
 
-    writeCoord() {
-        const lat = Number(this.#coordenadas.lat);
-        const lon = Number(this.#coordenadas.lon);
-
-        const p = document.createElement("p");
-        p.textContent = `Coordenadas: (${lat}, ${lon})`;
-        document.body.appendChild(p);
-    }
-
     writeParagraph(texto) {
         const p = document.createElement("p");
         p.innerHTML = texto;
-        document.body.appendChild(p);
+        this.#insertar(p);
+    }
+
+    writeCoord() {
+        const p = document.createElement("p");
+        p.textContent =
+            `Coordenadas: (${this.#coordenadas.lat}, ${this.#coordenadas.lon})`;
+        this.#insertar(p);
     }
 
     writeTitle(texto) {
-        const h = document.createElement("h3");
-        h.textContent = texto;
-        document.body.appendChild(h);
+        const h3 = document.createElement("h3");
+        h3.textContent = texto;
+        this.#insertar(h3);
+    }
+
+
+    #insertar(elemento) {
+        const contenedor = document.querySelector("main");
+        contenedor.appendChild(elemento);
     }
 
     getMeteorologiaCarrera() {
@@ -154,7 +158,7 @@ class Ciudad {
 
     section.append(table);
 
-    $("main").after(section);
+    $("main").append(section);
 }
 
 

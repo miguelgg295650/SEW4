@@ -58,7 +58,8 @@ a:visited {
 
 /* Especificidad = 011 */
 a:hover {
-    color: #988686;/* hereda color fondo del contenedor */
+    color: #000000;/* hereda color fondo del contenedor */
+    text-decoration: dotted underline;
 }
 
 /* Especificidad = 010 */
@@ -82,7 +83,7 @@ button {
 
 /* Especificidad = 011 */
 button:hover {
-    background-color: #988686;
+    background-color: #8f9886;
     color: #ffffff;
 }
 
@@ -111,11 +112,7 @@ section > h3 {
     border-bottom: 0.08rem solid rgba(92, 78, 78, 0.25);
 }
 
-/* Especificidad = 001 */
-article {
-    background-color: rgba(209, 208, 208, 0.25);
-    color: inherit; /* hereda color del padre */
-}
+
 
 /* Especificidad = 011 */
 input[type="file"] {
@@ -182,6 +179,15 @@ section video {
     height: auto;
     border-radius: 0.6rem;
 }
+
+/* Especificidad = 001 */
+dialog {
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.25);
+}
+
 
 
 @media (min-width: 320px) and (max-width: 799px) {

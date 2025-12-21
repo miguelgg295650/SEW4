@@ -77,7 +77,7 @@ class Cronometro {
 
     const cadena = `${mm}:${ss}.${s}`;
 
-    const p = document.querySelector("main p");
+    const p = document.querySelector("section p");
     if (p) {
       p.textContent = cadena;
     }

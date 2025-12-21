@@ -43,24 +43,27 @@
         <h2>Meteorologia de MotoGP Desktop</h2>
         
        
-
+        
         <script>
-        const c = new Ciudad(
-            "Barcelona",
-            "España",
-            "Barcelonés"
-        );
+            const c = new Ciudad(
+                "Barcelona",
+                "España",
+                "Barcelonés"
+            );
 
-        c.rellenarCampos(
-            1664182,
-            { lat: 41.3851, lon: 2.1734 }
-        );
+            c.rellenarCampos(
+                1664182,
+                { lat: 41.3851, lon: 2.1734 }
+            );
 
-        c.writeTitle(c.getNombreCiudad());
-        c.writeParagraph(`País: ${c.getNombrePais()}`);
-        c.writeParagraph(c.getInfo());
-        c.writeCoord();
+            c.writeTitle(c.getNombreCiudad());
+            c.writeParagraph(`País: ${c.getNombrePais()}`);
+            c.writeParagraph(c.getInfo());
+            c.writeCoord();
+        </script>
 
+        
+        <script>
         c.getMeteorologiaCarrera().then(json => {
             const datos = c.procesarJSONCarrera(json);
             c.mostrarMeteorologiaCarrera(datos);

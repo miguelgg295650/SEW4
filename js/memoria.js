@@ -75,7 +75,13 @@ class Memoria {
       }
     }
     cronometro.parar();
-    alert("¡Has ganado!");
+    
+    const dialog = document.querySelector("dialog");
+    const boton = dialog.querySelector("button");
+
+    dialog.showModal();
+
+    boton.addEventListener("click", () => dialog.close(), { once: true });
   }
 
   #cubrirCartas() {
