@@ -48,43 +48,40 @@
         <section>
             <h2>Información del circuito</h2>
             
-            <p>Seleccione el archivo infoCircuito.html:</p>
-            <label>Archivo HTML del circuito
-            <input type="file"
+            <label for="archivoHTML">
+                Seleccionar archivo HTML del circuito
+            </label>
+            <input id="archivoHTML"
+                type="file"
                 accept=".html,text/html"
                 onchange="circuito.leerArchivoHTML(this.files)">
+        </section>
+
+
+        <section>
+            <h3>Altimetría del circuito</h3>
+
+            <label for="archivoSVG">
+                Seleccionar archivo SVG de la altimetría del circuito
             </label>
+            <input id="archivoSVG"
+                type="file"
+                accept=".svg"
+                onchange="cargadorSVG.leerArchivoSVG(this.files)">
         </section>
 
         
         <section>
-           <h3>Altimetría del circuito</h3>
+            <h3>Mapa del circuito</h3> 
 
-            <p>Seleccione el archivo altimetria.svg:</p>
-
-            <label>
-            Cargar altimetría del circuito (SVG)
-            <input type="file" accept=".svg"
-                    onchange="cargadorSVG.leerArchivoSVG(this.files)">
+            <label for="archivoKML">
+                Seleccionar archivo KML del recorrido del circuito
             </label>
-
+            <input id="archivoKML"
+                type="file"
+                accept=".kml"
+                onchange="cargadorKML.leerArchivoKML(this.files)">
         </section>
-
-        <section>
-            <h3>Mapa del circuito</h3>
-
-            <p>Seleccione el archivo circuito.kml:</p>
-
-            <label>
-            Cargar recorrido del circuito (KML)
-            <input type="file" accept=".kml"
-                    onchange="cargadorKML.leerArchivoKML(this.files)">
-            </label>
-
-
-        </section>
-
-
 
         <script>
             const circuito = new Circuito();
