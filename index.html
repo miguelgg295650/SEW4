@@ -55,6 +55,7 @@
             const noticias = new Noticias("MotoGP");
 
             noticias.buscar().then(json => {
+                console.log(json);
                 const datos = noticias.procesarInformacion(json);
                 noticias.mostrarNoticias(datos);
             });

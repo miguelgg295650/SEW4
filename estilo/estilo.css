@@ -1,7 +1,7 @@
 /*Datos personales: Miguel Gutiérrez García*/
 
 /*Colores:
-#a9b39a
+#f4ffe3
 #312c16
 #988686
 #d1d0d0
@@ -26,7 +26,7 @@ body {
 
 /* Especificidad = 001 */
 header {
-    background-color: #a9b39a; /* hereda color de body */
+    background-color: #f4ffe3; /* hereda color de body */
 }
 
 /* Especificidad = 001 */
@@ -69,7 +69,7 @@ a:hover {
 
 /* Especificidad = 001 */
 button {
-    background-color: #a9b39a;
+    background-color: #f4ffe3;
     color: #000000;
     border: 0.15em solid #312c16;
     border-radius: 0.5em;
@@ -145,7 +145,7 @@ table {
 
 /* Especificidad = 001 */
 thead {
-    background-color: #a9b39a;
+    background-color: #f4ffe3;
     color: #000000;
 }
 
@@ -171,7 +171,7 @@ tbody tr:nth-child(even) {
 
 /* Especificidad = 011 */
 tbody tr:hover {
-    background-color: #a9b39a;
+    background-color: #f4ffe3;
     color: #000000;
 }
 

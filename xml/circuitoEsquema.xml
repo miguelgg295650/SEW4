@@ -23,7 +23,7 @@
       <foto archivo="multimedia/circuito2.png" titulo="Salida" />
    </galeria_fotos>
    <galeria_videos>
-      <video archivo="multimedia/circuito.mp4" titulo="Video circuito" formato="mp4" />
+      <video archivo="multimedia/BinderVideo.mp4" titulo="Video circuito" formato="mp4" />
    </galeria_videos>
    <punto_origen>
       <latitud unidad="deg">41.57003592</latitud>

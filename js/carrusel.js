@@ -50,13 +50,13 @@ class Carrusel {
     mostrarFotografias(fotosProcesadas) {
         const primera = fotosProcesadas[0][1]; 
 
-        const article = $("<article></article>");
+        const section = $("<section></section>");
         const h2 = $(`<h2>Imágenes del circuito del Circuito de Barcelona</h2>`);
         const img = $(`<img src="${primera}" alt="Imagen del circuito">`);
 
-        article.append(h2);
-        article.append(img);
-        $("main").append(article);
+        section.append(h2);
+        section.append(img);
+        $("main").append(section);
 
 
         setInterval(this.cambiarFotografia.bind(this, fotosProcesadas), 3000);
@@ -70,7 +70,7 @@ class Carrusel {
         }
         const nuevaURL = fotos[this.#actual][1];
 
-        $("article img").attr("src", nuevaURL);
+        $("section img").attr("src", nuevaURL);
 
     }
 

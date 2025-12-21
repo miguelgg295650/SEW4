@@ -82,7 +82,7 @@ $id_usuario = $stmt->insert_id;
     $completada = 1;
 
     $stmt->bind_param(
-        "isiiisi",
+        "isiissi",
         $id_usuario,
         $_POST["dispositivo"],
         $tiempo,
@@ -171,34 +171,34 @@ Dispositivo
 <fieldset>
 <legend>Preguntas del test</legend>
 
-<p>1. ¿Cuántos podios consiguió Brad Binder durante la temporada 2024?
+<p>1. ¿Cuántos podios consiguió Brad Binder durante la temporada 2024? (Ver en Piloto)
 <input type="text" name="p1" required></p>
 
-<p>2. ¿Qué título mundial consiguió Brad Binder en 2016?
+<p>2. ¿Qué título mundial consiguió Brad Binder en 2016? (Ver en Piloto)
 <input type="text" name="p2" required></p>
 
-<p>3. ¿Cuál ha sido su mejor resultado final en MotoGP?
+<p>3. ¿Cuál ha sido su mejor resultado final en MotoGP? (Ver en Piloto)
 <input type="text" name="p3" required></p>
 
-<p>4. ¿En qué año debutó en MotoGP?
+<p>4. ¿En qué año debutó en MotoGP? (Ver en Piloto)
 <input type="number" name="p4" required></p>
 
-<p>5. ¿Cuánto tiempo te llevó el juego de cartas?
+<p>5. ¿Cuánto tiempo te llevó el juego de cartas? (Ver en Juegos)
 <input type="text" name="p5" required></p>
 
-<p>6. ¿Quién fue el vencedor de la carrera?
+<p>6. ¿Quién fue el vencedor de la carrera? (Ver en Clasificaciones)
 <input type="text" name="p6" required></p>
 
-<p>7. ¿Qué tiempo hizo el día de la carrera?
+<p>7. ¿Qué tiempo hizo el día de la carrera? (Ver en PiloMeteorología)
 <input type="text" name="p7" required></p>
 
-<p>8. ¿Cuál es la longitud del circuito?
+<p>8. ¿Cuál es la longitud del circuito? (Ver en Circuito)
 <input type="text" name="p8" required></p>
 
-<p>9. ¿Dónde se llevó a cabo la carrera?
+<p>9. ¿Dónde se llevó a cabo la carrera? (Ver en Circuito)
 <input type="text" name="p9" required></p>
 
-<p>10. ¿Cuántos habitantes tiene la localidad?
+<p>10. ¿Cuántos habitantes tiene la localidad? (Ver en Meteorología)
 <input type="number" name="p10" required></p>
 </fieldset>
 
