@@ -1,148 +1,112 @@
 <?php
-/* ===============================================================
-   CONFIGURACIÓN BD – TODO EN UN ÚNICO ARCHIVO
-   Cabra Edition™
-   Hace:
-   ✔ Reiniciar tablas
-   ✔ Eliminar base de datos completa
-   ✔ Exportar CSV
-   Y ya está. No recrea BD porque no lo quieres.
-================================================================ */
 
 class Configuracion {
 
     private $host = "localhost";
-    private $user = "root";
-    private $pass = "";
+    private $user = "DBUSER2025";
+    private $pass = "DBPSWD2025";
     private $dbname = "uo295650_db";
 
-    /* =============================
-       CONECTAR A LA BD EXISTENTE
-    ==============================*/
     private function conectarBD() {
-        return new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+        $db = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+        if ($db->connect_error) {
+            die("Error de conexión");
+        }
+        return $db;
     }
 
-    /* =============================
-       CONECTAR AL SERVIDOR MYSQL
-       (sin seleccionar BD)
-    ==============================*/
-    private function conectarServer() {
-        return new mysqli($this->host, $this->user, $this->pass, "");
+    private function conectarServidor() {
+        return new mysqli($this->host, $this->user, $this->pass);
     }
 
-    /* =============================
-       1. REINICIAR BD (vaciar tablas)
-    ==============================*/
     public function reiniciarBD() {
         $db = $this->conectarBD();
-
-        // Borrar datos en orden correcto
-        $db->query("DELETE FROM tcomentarios");
-        $db->query("DELETE FROM tresultados");
-        $db->query("DELETE FROM tusuarios");
-
-        return true;
+        $db->query("SET FOREIGN_KEY_CHECKS=0");
+        $db->query("TRUNCATE tobservaciones_facilitador");
+        $db->query("TRUNCATE tresultados");
+        $db->query("TRUNCATE tusuarios");
+        $db->query("SET FOREIGN_KEY_CHECKS=1");
     }
 
-    /* =============================
-       2. ELIMINAR LA BASE DE DATOS
-    ==============================*/
     public function eliminarBD() {
-        $server = $this->conectarServer();
-        return $server->query("DROP DATABASE IF EXISTS $this->dbname");
+        $server = $this->conectarServidor();
+        $server->query("DROP DATABASE IF EXISTS {$this->dbname}");
     }
 
-    /* =============================
-       3. EXPORTAR A CSV
-    ==============================*/
-    public function exportarCSV($tabla) {
+    public function exportarCSV() {
+
         $db = $this->conectarBD();
-        $result = $db->query("SELECT * FROM $tabla");
 
-        $filename = "export_" . $tabla . "_" . date("Ymd_His") . ".csv";
-        $file = fopen($filename, "w");
+        $tablas = [
+            "tusuarios",
+            "tresultados",
+            "tobservaciones_facilitador"
+        ];
 
-        // Cabeceras CSV
-        $columns = $result->fetch_fields();
-        $header = [];
-        foreach ($columns as $c) {
-            $header[] = $c->name;
+        $archivo = "datos.csv";
+        $f = fopen($archivo, "w");
+        foreach ($tablas as $tabla) {
+
+            $res = $db->query("SELECT * FROM $tabla");
+            if (!$res) continue;
+
+            
+
+            $campos = $res->fetch_fields();
+            $cabecera = [];
+
+            foreach ($campos as $campo) {
+                $cabecera[] = $campo->name;
+            }
+
+            fputcsv($f, $cabecera);
+
+            while ($fila = $res->fetch_assoc()) {
+                fputcsv($f, $fila);
+            }
         }
-        fputcsv($file, $header);
-
-        // Datos
-        while ($row = $result->fetch_assoc()) {
-            fputcsv($file, $row);
-        }
-
-        fclose($file);
-
-        return $filename;
+        fclose($f);
     }
 
-    /* =============================
-       MENSAJE ESTÉTICO
-    ==============================*/
-    public function msg($txt) {
-        echo "<div style='background:#eee;padding:10px;border-left:5px solid #333;margin:10px;font-family:Arial'>
-                $txt
-              </div>";
-    }
 }
 
 $cfg = new Configuracion();
-?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Configuración de Base de Datos</title>
-</head>
-
-<body style="font-family: Arial; padding: 20px;">
-
-<h1>Configuración – MotoGP Desktop</h1>
-
-<form method="post">
-    <button name="accion" value="reiniciar">Reiniciar BD (vaciar tablas)</button>
-    <button name="accion" value="eliminar">Eliminar BD completa</button>
-</form>
-
-<h2>Exportar Tabla</h2>
-<form method="post">
-    <select name="tabla">
-        <option value="tusuarios">tusuarios</option>
-        <option value="tresultados">tresultados</option>
-        <option value="tcomentarios">tcomentarios</option>
-    </select>
-    <button name="accion" value="exportar">Exportar CSV</button>
-</form>
-
-<?php
-// CONTROLADOR
-if (!empty($_POST["accion"])) {
-
+if (isset($_POST["accion"])) {
     switch ($_POST["accion"]) {
-
         case "reiniciar":
             $cfg->reiniciarBD();
-            $cfg->msg("✔ BD reiniciada: todas las tablas han sido vaciadas.");
             break;
-
         case "eliminar":
             $cfg->eliminarBD();
-            $cfg->msg("❌ Base de datos eliminada COMPLETAMENTE.");
             break;
-
         case "exportar":
-            $file = $cfg->exportarCSV($_POST["tabla"]);
-            $cfg->msg("📤 Exportación lista: <strong>$file</strong>");
+            $cfg->exportarCSV();
             break;
     }
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración Test Usabilidad</title>
+    <link rel="stylesheet" href="../estilo/estilo.css">
+    <link rel="stylesheet" href="../estilo/layout.css">
+</head>
+
+<body>
+<main>
+    <h2>Configuración del Test de Usabilidad</h2>
+    <section>
+
+        <form method="post">
+            <button name="accion" value="reiniciar">Reiniciar Base de Datos</button>
+            <button name="accion" value="exportar">Exportar Datos CSV</button>
+            <button name="accion" value="eliminar">Eliminar Base de Datos</button>
+        </form>
+    </section>
+</main>
 </body>
 </html>

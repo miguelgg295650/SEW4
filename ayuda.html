@@ -32,27 +32,136 @@
         </nav>
     </header>
     <p>Estás en: <a href="index.html">Inicio</a> >> <strong> Ayuda</strong> </p>
-    <main>
-        <h2>Ayuda para MotoGP Desktop</h2>
-      
-        <p>en desarrollo... </p>
-        <h2>Navegación</h2>
-        <p>Para navegar por la página podrá utilizar </p>
-        <h4>Lorem ipsum</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+   <main>
+    <h2>Ayuda para MotoGP Desktop</h2>
+
+    <p>
+        MotoGP Desktop es una aplicación web informativa y educativa que permite consultar
+        información relacionada con el campeonato de MotoGP, sus pilotos, circuitos, condiciones
+        meteorológicas, clasificaciones y juegos interactivos.
+    </p>
+
+    <section>
+        <h3>Navegación general</h3>
+
+        <p>
+            La navegación por MotoGP Desktop se realiza mediante el menú principal situado en la
+            parte superior de la página. Desde él se puede acceder a todas las secciones del sitio.
         </p>
 
-        <h4>Lorem ipsum</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <ul>
+            <li><strong>Inicio:</strong> página principal del proyecto.</li>
+            <li><strong>Piloto:</strong> información detallada sobre el piloto Brad Binder.</li>
+            <li><strong>Circuito:</strong> datos del circuito, altimetría y visualización del trazado en un mapa dinámico.</li>
+            <li><strong>Meteorología:</strong> previsión meteorológica para el circuito.</li>
+            <li><strong>Clasificaciones:</strong> resultados de carrera y clasificación del mundial obtenidos desde un documento XML.</li>
+            <li><strong>Juegos:</strong> juegos interactivos y acceso al test de usabilidad.</li>
+            <li><strong>Ayuda:</strong> explicación del funcionamiento de la aplicación.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Sección Piloto</h3>
+
+        <p>
+            En esta sección se muestra información relevante sobre el piloto Brad Binder, incluyendo
+            su trayectoria deportiva, títulos conseguidos y resultados más destacados en MotoGP.
         </p>
-    </main> 
+
+        <p>
+            El contenido es estático y se presenta utilizando una estructura semántica HTML adecuada.
+        </p>
+    </section>
+
+    <section>
+        <h3>Sección Circuito</h3>
+
+        <p>
+            La sección de circuito permite cargar distintos archivos para visualizar información
+            específica del trazado:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Archivo HTML:</strong> muestra información descriptiva del circuito.
+            </li>
+            <li>
+                <strong>Archivo SVG:</strong> representa la altimetría del circuito.
+            </li>
+            <li>
+                <strong>Archivo KML:</strong> visualiza el recorrido del circuito sobre un mapa dinámico.
+            </li>
+        </ul>
+
+        <p>
+            Cada archivo se carga de forma independiente y su contenido se muestra en la sección
+            correspondiente sin afectar al resto de la página.
+        </p>
+    </section>
+
+    <section>
+        <h3>Sección Meteorología</h3>
+
+        <p>
+            En esta sección se consulta la previsión meteorológica asociada al circuito, obteniendo
+            datos como temperatura, estado del tiempo y condiciones atmosféricas.
+        </p>
+
+        <p>
+            La información se obtiene desde un servicio externo y se presenta de forma clara para el usuario.
+        </p>
+    </section>
+
+    <section>
+        <h3>Sección Clasificaciones</h3>
+
+        <p>
+            La sección de clasificaciones muestra información obtenida desde un documento XML
+            almacenado en el servidor, incluyendo:
+        </p>
+
+        <ul>
+            <li>Ganador de la carrera.</li>
+            <li>Tiempo total empleado.</li>
+            <li>Clasificación del mundial tras la carrera.</li>
+        </ul>
+
+        <p>
+            Los datos se procesan mediante PHP y se presentan usando una estructura HTML sencilla.
+        </p>
+    </section>
+
+    <section>
+        <h3>Juegos</h3>
+
+        <p>
+            En la sección de juegos se incluyen distintos elementos interactivos, como el juego de
+            memoria con cartas o los cronometros.
+        </p>
+        <h5>Juego de cartas</h5>
+        <p>
+            El juego de cartas consiste en un juego de memoria donde el usuario debe encontrar
+            parejas de cartas iguales. El juego se desarrolla mediante JavaScript y ofrece una
+            experiencia interactiva.
+        </p>
+
+    </section>
+
+    <section>
+        <h3>Requisitos técnicos</h3>
+
+        <p>
+            Para el correcto funcionamiento de MotoGP Desktop es necesario:
+        </p>
+
+        <ul>
+            <li>Tener habilitado JavaScript en el navegador.</li>
+            <li>Acceder a la aplicación mediante un servidor web (por ejemplo, XAMPP).</li>
+            <li>Disponer de soporte para PHP y base de datos MySQL.</li>
+        </ul>
+    </section>
+
+</main>
+
 </body>
 </html>

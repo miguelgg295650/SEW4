@@ -1,34 +1,56 @@
-// cronometro.js
-
 class Cronometro {
-  // Campos privados
   #tiempo;
   #inicio;
   #corriendo;
 
   constructor() {
-    this.#tiempo = 0;       // milisegundos transcurridos
-    this.#inicio = null;    // instante de arranque (Temporal.Instant o Date)
-    this.#corriendo = null; // id de setInterval
+    this.#tiempo = 0;       
+    this.#corriendo = null;
+    this.#addListeners();
+  }
+
+  #addListeners() {
+    const botones = document.querySelectorAll("main button");
+
+     if (botones.length >= 3) {
+      botones[0].addEventListener("click", () => this.arrancar());
+      botones[1].addEventListener("click", () => this.parar());
+      botones[2].addEventListener("click", () => this.reiniciar());
+    }
   }
 
   arrancar() {
-    if (this.#corriendo === null) {
-      try {
-        if (typeof Temporal !== "undefined" && Temporal.Now) {
-          this.#inicio = Temporal.Now.instant();
+  if (this.#corriendo === null) {
+
+    try {
+      if (typeof Temporal !== "undefined" && Temporal.Now) {
+        const ahora = Temporal.Now.instant();
+        if (this.#tiempo > 0) {
+          this.#inicio = Temporal.Instant.fromEpochMilliseconds(
+            ahora.epochMilliseconds - this.#tiempo
+          );
         } else {
-          throw new Error("Temporal no disponible");
+          this.#inicio = ahora;
         }
-      } catch (_) {
-        this.#inicio = new Date();
+
+      } else {
+        throw new Error("Temporal no disponible");
       }
-      this.#corriendo = setInterval(() => this.#actualizar(), 100);
-    } else {
-      this.reiniciar();
-      this.arrancar();
+
+    } catch (_) {
+      const ahora = new Date();
+
+      if (this.#tiempo > 0) {
+        this.#inicio = new Date(ahora.getTime() - this.#tiempo);
+      } else {
+        this.#inicio = ahora;
+      }
     }
+
+    this.#corriendo = setInterval(() => this.#actualizar(), 100);
   }
+}
+
 
   #actualizar() {
     let ahora;

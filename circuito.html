@@ -15,7 +15,16 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
 
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3ooZeOKXmrIiiLV1oJG8pNKxXebGlQu8&libraries=marker&loading=async"
+        async
+        defer>
+    </script>
+
+
     <script src="js/circuito.js"></script>
+
+
 
 
 </head>
@@ -36,9 +45,50 @@
     </header>
     <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Circuito</strong> </p>
     <main>
-        <h2>Circuito de Barcelona</h2>
+        <section>
+            <h3>Información del circuito</h3>
+
+            <p>Seleccione el archivo infoCircuito.html:</p>
+
+            <input type="file"
+                accept=".html,text/html"
+                onchange="circuito.leerArchivoHTML(this.files)">
+
+        </section>
+
         
-        <script>var circuito = new Circuito();</script>
-    </main> 
+        <section>
+           <h3>Altimetría del circuito</h3>
+
+            <p>Seleccione el archivo altimetria.svg:</p>
+
+            <input type="file"
+                accept=".svg,image/svg+xml"
+                onchange="cargadorSVG.leerArchivoSVG(this.files)">
+
+        </section>
+
+        <section>
+            <h3>Mapa del circuito</h3>
+
+            <p>Seleccione el archivo circuito.kml:</p>
+
+            <input type="file"
+                accept=".kml"
+                onchange="cargadorKML.leerArchivoKML(this.files)"
+            >
+
+        </section>
+
+
+
+        <script>
+            const circuito = new Circuito();
+            const cargadorSVG = new CargadorSVG();
+            const cargadorKML = new CargadorKML();
+        </script>
+
+    </main>
+
 </body>
 </html>

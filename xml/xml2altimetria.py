@@ -58,11 +58,11 @@ def main():
            stroke="red"
            stroke-width="2" />
            
-  <text x="{x_text}" y="{y_100 + 5}" text-anchor="start" font-size="14">100m</text>
+  <text x="{x_text}" y="{y_100 + 5}" text-anchor="start" font-size="14">100</text>
 
   <line x1="{margin}" y1="{y_max}" x2="{margin + usable_width}" y2="{y_max}"
         stroke="black" stroke-width="1" />
-  <text x="{x_text}" y="{y_max + 5}" text-anchor="start" font-size="14">{max_alt}m</text>
+  <text x="{x_text}" y="{y_max + 5}" text-anchor="start" font-size="14">{max_alt}</text>
 
 </svg>
 ''')

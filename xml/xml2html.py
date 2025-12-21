@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 XML_FILE = "xml/circuitoEsquema.xml"
-HTML_FILE = "InfoCircuito.html"
+HTML_FILE = "xml/InfoCircuito.html"
 
 NS = {"u": "http://www.uniovi.es"}
 

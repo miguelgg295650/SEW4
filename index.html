@@ -17,6 +17,15 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
 
+    <script 
+     src="https://code.jquery.com/jquery-3.7.1.js"
+     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+     crossorigin="anonymous">
+    </script>
+
+    <script src="js/carrusel.js"></script>
+    <script src="js/noticias.js"></script>
+
 </head>
 
 <body>
@@ -31,10 +40,28 @@
             <a href="clasificaciones.php" title="Clasificaciones MotoGP Desktop">Clasificaciones</a>
             <a href="juegos.html" title="Juegos MotoGP Desktop">Juegos</a>
             <a href="ayuda.html" title="Ayuda para el uso de MotoGP Desktop">Ayuda</a>
-            <a href="php/formulario.php" title="Formulario usabilidad">Formulario</a>
+            
         </nav>
     </header>
-    <p>en desarrollo... </p>
+    <main>
+        <script>
+            const carrusel = new Carrusel("Circuito de Barcelona,MotoGP");
+
+            carrusel.getFotografias().then(json => {
+            const fotos = carrusel.procesarJSONFotografias(json); 
+            carrusel.mostrarFotografias(fotos);
+            });
+
+            const noticias = new Noticias("MotoGP");
+
+            noticias.buscar().then(json => {
+                const datos = noticias.procesarInformacion(json);
+                noticias.mostrarNoticias(datos);
+            });
+
+
+        </script>
+    </main>
 	
 </body>
 </html>

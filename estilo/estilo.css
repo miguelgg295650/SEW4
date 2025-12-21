@@ -1,78 +1,71 @@
 /*Datos personales: Miguel Gutiérrez García*/
 
-/* Estilos generales del proyecto MotoGP-Desktop*/
-
 /*Colores:
-#a9b39a Yellow
-#5c4e4e Brown
-#988686 Coffee Pot
-#d1d0d0 Pewter
-#000000 Black
+#a9b39a
+#5c4e4e
+#988686
+#d1d0d0
+#000000
 */
 
 
+
+/* Especificidad = 001 */
+main {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
 /* Especificidad = 001 */
 body {
-    font-family: Verdana, Geneva, sans-serif; 
+    font-family: Verdana, Geneva, sans-serif;
     background-color: #d1d0d0;
-    color: #000000; 
-    
+    color: #000000;
 }
+
 /* Especificidad = 001 */
 header {
-    background-color: #a9b39a;
-    /*Hereda color de body*/
-    
+    background-color: #a9b39a; /* hereda color de body */
 }
 
 /* Especificidad = 001 */
 h1, h2, h4 {
-    color: #5c4e4e; 
-    /*Hereda bg color de body*/
+    color: #5c4e4e;
 }
 
 /* Especificidad = 001 */
-nav{     
-    color: #988686;
+nav {
+    color: #988686; /* hereda fondo del contenedor */
     font-size: larger;
-    /*Hereda bg color de body*/
-    
 }
 
-.active{
-    color: #5c4e4e; 
-    /*Hereda bg color de body*/
-}
-
-/* Especificidad = 012  */
+/* Especificidad = 012 */
 body > p:first-of-type {
     font-size: 80%;
 }
 
-a{
-    color: #5c4e4e;
+/* Especificidad = 001 */
+a {
+    color: #5c4e4e; /* hereda fondo del contenedor */
     text-decoration: none;
-    
 }
 
- a:visited{
+/* Especificidad = 011 */
+a:visited {
     color: #5c4e4e;
-    text-decoration: none;
-    
 }
 
-
- a:hover{
-    color:#988686
+/* Especificidad = 011 */
+a:hover {
+    color: #988686;
 }
 
-
- .active{
+/* Especificidad = 010 */
+.active {
     color: #000000;
     text-decoration: underline;
-    
 }
-
 
 /* Especificidad = 001 */
 button {
@@ -85,21 +78,137 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
-  }
-  
-  /* Especificidad = 011 */
-  button:hover {
+}
+
+/* Especificidad = 011 */
+button:hover {
     background-color: #988686;
     color: #ffffff;
-    transform: scale(1.05);
-  }
-  
-  /* Especificidad = 011 */
-  button:active {
+}
+
+/* Especificidad = 011 */
+button:active {
     background-color: #5c4e4e;
     color: #ffffff;
-    transform: scale(0.97);
-  }
-  
-  
+}
 
+/* Especificidad = 001 */
+section {
+    background-color: #ffffff;
+    color: #000000;
+    border: 0.08rem solid rgba(92, 78, 78, 0.25);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.06);
+}
+
+/* Especificidad = 002 */
+section > h2,
+section > h3 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.08rem solid rgba(92, 78, 78, 0.25);
+}
+
+/* Especificidad = 001 */
+article {
+    background-color: rgba(209, 208, 208, 0.25);
+    color: inherit; /* hereda color del padre */
+}
+
+/* Especificidad = 011 */
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #ffffff;
+    color: #000000;
+    border: 0.08rem solid rgba(92, 78, 78, 0.25);
+    border-radius: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+/* Especificidad = 021 */
+input[type="file"]:focus {
+    outline: 0.15rem solid rgba(92, 78, 78, 0.35);
+    outline-offset: 0.15rem;
+}
+
+
+/* Especificidad = 001 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+/* Especificidad = 001 */
+thead {
+    background-color: #a9b39a;
+    color: #000000;
+}
+
+/* Especificidad = 001 */
+th {
+    padding: 0.6em;
+    border: 0.1em solid #5c4e4e;
+    text-align: center;
+}
+
+/* Especificidad = 001 */
+td {
+    padding: 0.5em;
+    border: 0.1em solid #988686;
+    text-align: center;
+}
+
+/* Especificidad = 012 */
+tbody tr:nth-child(even) {
+    background-color: #d1d0d0;
+    color: #000000;
+}
+
+/* Especificidad = 011 */
+tbody tr:hover {
+    background-color: #a9b39a;
+}
+
+/* Especificidad = 002 */
+section img,
+section video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+}
+
+
+@media (min-width: 320px) and (max-width: 799px) {
+
+    /* Especificidad = 001 */
+    main {
+        padding: 0.9rem; /* redefinición por media query */
+    }
+
+    /* Especificidad = 001 */
+    section {
+        padding: 1rem; /* redefinición por media query */
+        border-radius: 0.65rem; /* redefinición por media query */
+    }
+
+    /* Especificidad = 012 */
+    body > p:first-of-type {
+        display: none; /* redefinición por media query */
+    }
+
+    /* Especificidad = 001 */
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Especificidad = 001 */
+    audio {
+        width: 100%;
+    }
+}

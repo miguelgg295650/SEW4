@@ -11,14 +11,16 @@ class Memoria {
     this.#anadirListener();
     this.#barajarCartas();
     this.#tablero_bloqueado = false;
+    cronometro.arrancar();
+
   }
 
   #anadirListener() {
-    const body = document.querySelector('body');
-    const cartas = body.querySelectorAll("article");
-    for (let i = 0; i < cartas.length; i++) {
-      cartas[i].addEventListener("click", () => {
-        this.voltearCarta(cartas[i]);
+    const cartas = document.querySelectorAll("main article");
+
+    for (let carta of cartas) {
+      carta.addEventListener("click", (evento) => {
+        this.voltearCarta(evento.currentTarget);
       });
     }
   }
@@ -72,6 +74,7 @@ class Memoria {
         return false;
       }
     }
+    cronometro.parar();
     alert("¡Has ganado!");
   }
 

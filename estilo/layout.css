@@ -1,7 +1,9 @@
+/* Especificidad = 001 */
 header {
     display: flex;
 }
 
+/* Especificidad = 001 */
 nav {
     display: flex;
     flex-direction: row;
@@ -10,38 +12,63 @@ nav {
     gap: 1.5em;
 }
 
-/* 📱 Media query para dispositivos pequeños */
+/* Especificidad = 002 */
+section > div {
+    width: 100%;
+    height: 50vh;
+}
+
 @media (min-width: 320px) and (max-width: 799px) {
 
-    
+    /* Especificidad = 001 */
     header {
-        flex-direction: column; 
-        align-items: center;    
+        flex-direction: column; /* redefinición intencionada por media query */
+        align-items: center;    /* redefinición intencionada por media query */
     }
 
-   
+    /* Especificidad = 003 */
+    article h2 + img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1em 0;
+    }
+
+    /* Especificidad = 002 */
     header h1,
     header nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;   
+        display: flex;          /* redefinición intencionada por media query */
+        flex-direction: column; /* redefinición intencionada por media query */
+        align-items: center;    /* redefinición intencionada por media query */
     }
-    
+
+    /* Especificidad = 001 */
     nav {
-        flex-direction: column; 
-        gap: 1em;              
+        flex-direction: column; /* redefinición intencionada por media query */
+        gap: 1em;               /* redefinición intencionada por media query
+                                   (afecta a row-gap y column-gap) */
     }
 
+    /* Especificidad = 012 */
     body > p:first-of-type {
-        display: none; /* el párrafo de migas no se muestra en móviles */
+        display: none; /* redefinición intencionada por media query */
     }
 
+    /* Especificidad = 001 */
     video {
         width: 100%;
         height: auto;
     }
 
+    /* Especificidad = 001 */
     audio {
         width: 100%;
+    }
+
+    /* Especificidad = 002 */
+    section > div {
+        width: 100%;  /* redefinición intencionada por media query */
+        height: 40vh; /* redefinición intencionada por media query */
     }
 }

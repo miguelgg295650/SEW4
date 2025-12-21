@@ -1,159 +1,228 @@
 <?php
-$errorFormulario = false;
 
-$errorNombre = "";
-$errorProfesion = "";
-$errorEdad = "";
-$errorGenero = "";
-$errorPericia = "";
-$errorDispositivo = "";
-$errorCompletada = "";
-$errorComentario = "";
-$errorPropuestas = "";
-$errorValoracion = "";
-$errorComentarioFacilitador = "";
+class Cronometro {
+    private $inicio = 0;
+    private $fin = 0;
+    private $tiempo = 0;
 
-$formularioGET = "";
-
-if (count($_GET) > 0) {
-
-    $formularioGET = $_GET;
-
-    if ($_GET["nombre"] == "") {
-        $errorNombre = " *";
-        $errorFormulario = true;
+    public function arrancar() {
+        $this->inicio = microtime(true);
     }
 
-    if ($_GET["profesion"] == "") {
-        $errorProfesion = " *";
-        $errorFormulario = true;
+    public function parar() {
+        $this->fin = microtime(true);
+        $this->tiempo = $this->fin - $this->inicio;
     }
 
-    if ($_GET["edad"] == "" || !is_numeric($_GET["edad"])) {
-        $errorEdad = " *";
-        $errorFormulario = true;
+    public function mostrar() {
+        $totalSegundos = $this->tiempo;
+        $minutos = floor($totalSegundos / 60);
+        $segundos = $totalSegundos - ($minutos * 60);
+        return sprintf("%02d:%04.1f", $minutos, $segundos);
     }
 
-    if (empty($_GET["genero"])) {
-        $errorGenero = " *";
-        $errorFormulario = true;
+    public function getSegundos() {
+        return round($this->tiempo);
     }
+}
+session_start();
 
-    if ($_GET["pericia"] == "" || !is_numeric($_GET["pericia"])) {
-        $errorPericia = " *";
-        $errorFormulario = true;
-    }
 
-    if (empty($_GET["dispositivo"])) {
-        $errorDispositivo = " *";
-        $errorFormulario = true;
-    }
+if (!isset($_SESSION["crono"])) {
+    $_SESSION["crono"] = new Cronometro();
+}
 
-    if (!isset($_GET["completada"])) {
-        $errorCompletada = " *";
-        $errorFormulario = true;
-    }
+$crono = $_SESSION["crono"];
 
-    if ($_GET["comentario"] == "") {
-        $errorComentario = " *";
-        $errorFormulario = true;
-    }
+$db = new mysqli(
+    "localhost",
+    "DBUSER2025",
+    "DBPSWD2025",
+    "uo295650_db"
+);
 
-    if ($_GET["propuestas"] == "") {
-        $errorPropuestas = " *";
-        $errorFormulario = true;
-    }
+if ($db->connect_error) {
+    die("Error de conexión");
+}
 
-    if ($_GET["valoracion"] == "" || !is_numeric($_GET["valoracion"])) {
-        $errorValoracion = " *";
-        $errorFormulario = true;
-    }
 
-    if ($_GET["comentario_facilitador"] == "") {
-        $errorComentarioFacilitador = " *";
-        $errorFormulario = true;
-    }
+if (isset($_POST["arrancar"])) {
+    $crono->arrancar();
+}
+
+if (isset($_POST["terminar"])) {
+
+    $crono->parar();
+    $tiempo = $crono->getSegundos();
+
+    $stmt = $db->prepare(
+    "INSERT INTO tusuarios (PROFESION, EDAD, ID_GENERO, PERICIA_INFORMATICA)
+     VALUES (?, ?, ?, ?)"
+);
+
+$stmt->bind_param(
+    "siii",
+    $_POST["profesion"],
+    $_POST["edad"],
+    $_POST["genero"],  
+    $_POST["pericia"]
+);
+
+$stmt->execute();
+$id_usuario = $stmt->insert_id;
+
+
+    $stmt = $db->prepare(
+    "INSERT INTO tresultados
+     (ID_USUARIO, ID_DISPOSITIVO, TIEMPO_SEGUNDOS, COMPLETADA,
+      COMENTARIOS_USUARIO, PROPUESTAS_MEJORA, VALORACION)
+     VALUES (?, ?, ?, ?, ?, ?, ?)"
+);
+
+    $completada = 1;
+
+    $stmt->bind_param(
+        "isiiisi",
+        $id_usuario,
+        $_POST["dispositivo"],
+        $tiempo,
+        $completada,
+        $_POST["comentarios_usuario"],
+        $_POST["propuestas_mejora"],
+        $_POST["valoracion"]
+    );
+
+
+    $stmt->execute();
+    $stmt->close();
+
+   $stmt = $db->prepare(
+    "INSERT INTO tobservaciones_facilitador (ID_USUARIO, COMENTARIO)
+     VALUES (?, ?)"
+);
+
+$stmt->bind_param(
+    "is",
+    $id_usuario,
+    $_POST["comentario_facilitador"]
+);
+
+
+    $stmt->execute();
+    $stmt->close();
+
+    unset($_SESSION["crono"]);
+
+    echo "<p>Prueba guardada correctamente</p>";
 }
 ?>
 
-<form action="#" method="get" name="formulario">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test de Usabilidad</title>
+    <link rel="stylesheet" href="../estilo/estilo.css">
+    <link rel="stylesheet" href="../estilo/layout.css">
+</head>
 
-    <p>Nombre</p>
-    <p>
-        <input type="text" name="nombre"/>
-        <span><?php echo $errorNombre; ?></span>
-    </p>
+<body>
+<main>
+<h2>Test de Usabilidad – MotoGP Desktop</h2>
 
-    <p>Profesión</p>
-    <p>
-        <input type="text" name="profesion"/>
-        <span><?php echo $errorProfesion; ?></span>
-    </p>
 
-    <p>Edad</p>
-    <p>
-        <input type="number" name="edad" step="1"/>
-        <span><?php echo $errorEdad; ?></span>
-    </p>
 
-    <p>Género</p>
-    <p>
-        <input type="radio" name="genero" value="H"/> Hombre
-        <input type="radio" name="genero" value="M"/> Mujer
-        <input type="radio" name="genero" value="O"/> Otro
-        <span><?php echo $errorGenero; ?></span>
-    </p>
 
-    <p>Pericia informática (0 a 10)</p>
-    <p>
-        <input type="number" name="pericia" min="0" max="10" step="1"/>
-        <span><?php echo $errorPericia; ?></span>
-    </p>
-
-    <p>Dispositivo</p>
-    <p>
-        <select name="dispositivo">
-            <option value="ORDENADOR">Ordenador</option>
-            <option value="TABLETA">Tableta</option>
-            <option value="TELEFONO">Teléfono</option>
-        </select>
-        <span><?php echo $errorDispositivo; ?></span>
-    </p>
-
-    <p>Completada</p>
-    <p>
-        <input type="radio" name="completada" value="1"/> Sí
-        <input type="radio" name="completada" value="0"/> No
-        <span><?php echo $errorCompletada; ?></span>
-    </p>
-
-    <p>Comentario del participante</p>
-    <p>
-        <textarea name="comentario" rows="4" cols="40"></textarea>
-        <span><?php echo $errorComentario; ?></span>
-    </p>
-
-    <p>Propuestas del participante</p>
-    <p>
-        <textarea name="propuestas" rows="4" cols="40"></textarea>
-        <span><?php echo $errorPropuestas; ?></span>
-    </p>
-
-    <p>Valoración (0 a 10)</p>
-    <p>
-        <input type="number" name="valoracion" min="0" max="10" step="1"/>
-        <span><?php echo $errorValoracion; ?></span>
-    </p>
-
-    <p>Comentario del facilitador</p>
-    <p>
-        <textarea name="comentario_facilitador" rows="4" cols="40"></textarea>
-        <span><?php echo $errorComentarioFacilitador; ?></span>
-    </p>
-
-    <p>
-        <input type="submit" value="Enviar"/>
-    </p>
-    
-    
+<form method="post">
+    <button type="submit" name="arrancar">Iniciar prueba</button>
 </form>
+
+<form method="post">
+<fieldset>
+<legend>Datos del participante</legend>
+
+<p>Profesión <input type="text" name="profesion" required></p>
+<p>Edad <input type="number" name="edad" required></p>
+
+<p>
+Género
+<input type="radio" name="genero" value="1"> Hombre
+<input type="radio" name="genero" value="2"> Mujer
+<input type="radio" name="genero" value="3"> Otro
+
+</p>
+
+<p>Pericia informática (0–10)
+<input type="number" name="pericia" min="0" max="10" required>
+</p>
+
+<p>
+Dispositivo
+<select name="dispositivo">
+    <option value="1">Ordenador</option>
+    <option value="2">Tableta</option>
+    <option value="3">Teléfono</option>
+</select>
+
+</select>
+</p>
+</fieldset>
+
+<fieldset>
+<legend>Preguntas del test</legend>
+
+<p>1. ¿Cuántos podios consiguió Brad Binder durante la temporada 2024?
+<input type="text" name="p1" required></p>
+
+<p>2. ¿Qué título mundial consiguió Brad Binder en 2016?
+<input type="text" name="p2" required></p>
+
+<p>3. ¿Cuál ha sido su mejor resultado final en MotoGP?
+<input type="text" name="p3" required></p>
+
+<p>4. ¿En qué año debutó en MotoGP?
+<input type="number" name="p4" required></p>
+
+<p>5. ¿Cuánto tiempo te llevó el juego de cartas?
+<input type="text" name="p5" required></p>
+
+<p>6. ¿Quién fue el vencedor de la carrera?
+<input type="text" name="p6" required></p>
+
+<p>7. ¿Qué tiempo hizo el día de la carrera?
+<input type="text" name="p7" required></p>
+
+<p>8. ¿Cuál es la longitud del circuito?
+<input type="text" name="p8" required></p>
+
+<p>9. ¿Dónde se llevó a cabo la carrera?
+<input type="text" name="p9" required></p>
+
+<p>10. ¿Cuántos habitantes tiene la localidad?
+<input type="number" name="p10" required></p>
+</fieldset>
+
+<fieldset>
+<legend>Comentarios</legend>
+
+<p>Comentarios del participante
+<textarea name="comentarios_usuario" required></textarea></p>
+
+<p>Propuestas de mejora
+<textarea name="propuestas_mejora" required></textarea></p>
+
+<p>Valoración (0–10)
+<input type="number" name="valoracion" min="0" max="10" required></p>
+
+<p>Comentarios del facilitador
+<textarea name="comentario_facilitador" required></textarea></p>
+</fieldset>
+
+
+<button type="submit" name="terminar">Terminar prueba</button>
+
+
+</form>
+</main>
+</body>
+</html>

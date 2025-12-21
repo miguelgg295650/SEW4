@@ -5,10 +5,10 @@
            stroke="red"
            stroke-width="2" />
            
-  <text x="970" y="365" text-anchor="start" font-size="14">100m</text>
+  <text x="970" y="365" text-anchor="start" font-size="14">100</text>
 
   <line x1="40" y1="40.0" x2="960" y2="40.0"
         stroke="black" stroke-width="1" />
-  <text x="970" y="45.0" text-anchor="start" font-size="14">141m</text>
+  <text x="970" y="45.0" text-anchor="start" font-size="14">141</text>
 
 </svg>

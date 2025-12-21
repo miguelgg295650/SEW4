@@ -21,6 +21,10 @@ class Cronometro {
         $segundos = $totalSegundos - ($minutos * 60);
         return sprintf("%02d:%04.1f", $minutos, $segundos);
     }
+
+    public function getSegundos() {
+        return round($this->tiempo);
+    }
 }
 
 $salida = "";
