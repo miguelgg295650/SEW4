@@ -18,12 +18,19 @@ section > div {
     height: 50vh;
 }
 
+
+/* Especificidad = 001 */
+table {
+    width: 100%;
+}
+
+
 @media (min-width: 320px) and (max-width: 799px) {
 
     /* Especificidad = 001 */
     header {
-        flex-direction: column; /* redefinición intencionada por media query */
-        align-items: center;    /* redefinición intencionada por media query */
+        flex-direction: column; 
+        align-items: center;    
     }
 
     /* Especificidad = 003 */
@@ -38,21 +45,21 @@ section > div {
     /* Especificidad = 002 */
     header h1,
     header nav {
-        display: flex;          /* redefinición intencionada por media query */
-        flex-direction: column; /* redefinición intencionada por media query */
-        align-items: center;    /* redefinición intencionada por media query */
+        display: flex;         
+        flex-direction: column; 
+        align-items: center;   
     }
 
     /* Especificidad = 001 */
     nav {
         flex-direction: column; /* redefinición intencionada por media query */
-        gap: 1em;               /* redefinición intencionada por media query
-                                   (afecta a row-gap y column-gap) */
+        gap: 1em;               /* redefinición intencionada por media query */
+                                
     }
 
     /* Especificidad = 012 */
     body > p:first-of-type {
-        display: none; /* redefinición intencionada por media query */
+        display: none; 
     }
 
     /* Especificidad = 001 */
@@ -70,5 +77,10 @@ section > div {
     section > div {
         width: 100%;  /* redefinición intencionada por media query */
         height: 40vh; /* redefinición intencionada por media query */
+    }
+
+        /* Especificidad = 001 */
+    section {
+        overflow-x: auto;  /*Para poder ver bien las tablas en pantallas pequeñas*/
     }
 }

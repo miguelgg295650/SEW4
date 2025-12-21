@@ -101,69 +101,62 @@ class Ciudad {
     }
 
 
-    mostrarMeteorologiaCarrera(datos) {
+   mostrarMeteorologiaCarrera(datos) {
 
-        const section = $("<section></section>");
+    const section = $("<section></section>");
 
-        
-        const articleDia = $("<article></article>");
-        const h3Dia = $("<h3>Información general: Día de la carrera</h3>");
+    const h3Dia = $("<h3>Información general: Día de la carrera</h3>");
+    section.append(h3Dia);
 
-        const pFecha = $(`<p>Fecha: ${datos.fecha}</p>`);
-        const pAmanecer = $(`<p>Amanecer: ${datos.amanecer}</p>`);
-        const pAtardecer = $(`<p>Atardecer: ${datos.atardecer}</p>`);
+    const pFecha = $(`<p>Fecha: ${datos.fecha}</p>`);
+    const pAmanecer = $(`<p>Amanecer: ${datos.amanecer}</p>`);
+    const pAtardecer = $(`<p>Atardecer: ${datos.atardecer}</p>`);
 
-        articleDia.append(h3Dia);
-        articleDia.append(pFecha);
-        articleDia.append(pAmanecer);
-        articleDia.append(pAtardecer);
+    section.append(pFecha);
+    section.append(pAmanecer);
+    section.append(pAtardecer);
 
+    const h4Horas = $("<h4>Datos meteorológicos horarios</h4>");
+    section.append(h4Horas);
 
+    const table = $("<table></table>");
+    const thead = $(`
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Temp (°C)</th>
+                <th>Sensación</th>
+                <th>Humedad (%)</th>
+                <th>Lluvia (mm)</th>
+                <th>Viento (km/h)</th>
+            </tr>
+        </thead>
+    `);
 
-        const articleHoras = $("<article></article>");
-        const h4Horas = $("<h4>Datos meteorológicos horarios</h4>");
+    const tbody = $("<tbody></tbody>");
 
-        const table = $("<table></table>");
-        const thead = $(`
-            <thead>
-                <tr>
-                    <th>Hora</th>
-                    <th>Temp (°C)</th>
-                    <th>Sensación</th>
-                    <th>Humedad (%)</th>
-                    <th>Lluvia (mm)</th>
-                    <th>Viento (km/h)</th>
-                </tr>
-            </thead>
+    datos.horas.forEach(hora => {
+        const tr = $(`
+            <tr>
+                <td>${hora.fechaHora}</td>
+                <td>${hora.temperatura}</td>
+                <td>${hora.sensacion}</td>
+                <td>${hora.humedad}</td>
+                <td>${hora.lluvia}</td>
+                <td>${hora.vientoVelocidad}</td>
+            </tr>
         `);
+        tbody.append(tr);
+    });
 
-        const tbody = $("<tbody></tbody>");
+    table.append(thead);
+    table.append(tbody);
 
-        datos.horas.forEach(hora => {
-            const tr = $(`
-                <tr>
-                    <td>${hora.fechaHora}</td>
-                    <td>${hora.temperatura}</td>
-                    <td>${hora.sensacion}</td>
-                    <td>${hora.humedad}</td>
-                    <td>${hora.lluvia}</td>
-                    <td>${hora.vientoVelocidad}</td>
-                </tr>
-            `);
-            tbody.append(tr);
-        });
+    section.append(table);
 
-        table.append(thead);
-        table.append(tbody);
+    $("main").after(section);
+}
 
-        articleHoras.append(h4Horas);
-        articleHoras.append(table);
-
-        section.append(articleDia);
-        section.append(articleHoras);
-
-        $("main").after(section);
-    }
 
 
 

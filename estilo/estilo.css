@@ -2,7 +2,7 @@
 
 /*Colores:
 #a9b39a
-#5c4e4e
+#312c16
 #988686
 #d1d0d0
 #000000
@@ -31,7 +31,7 @@ header {
 
 /* Especificidad = 001 */
 h1, h2, h4 {
-    color: #5c4e4e;
+    color: #312c16; /* hereda color fondo del contenedor */
 }
 
 /* Especificidad = 001 */
@@ -47,23 +47,23 @@ body > p:first-of-type {
 
 /* Especificidad = 001 */
 a {
-    color: #5c4e4e; /* hereda fondo del contenedor */
+    color: #312c16; /* hereda fondo del contenedor */
     text-decoration: none;
 }
 
 /* Especificidad = 011 */
 a:visited {
-    color: #5c4e4e;
+    color: #312c16; /* hereda color fondo del contenedor */
 }
 
 /* Especificidad = 011 */
 a:hover {
-    color: #988686;
+    color: #988686;/* hereda color fondo del contenedor */
 }
 
 /* Especificidad = 010 */
 .active {
-    color: #000000;
+    color: #000000;/* hereda color fondo del contenedor */
     text-decoration: underline;
 }
 
@@ -71,7 +71,7 @@ a:hover {
 button {
     background-color: #a9b39a;
     color: #000000;
-    border: 0.15em solid #5c4e4e;
+    border: 0.15em solid #312c16;
     border-radius: 0.5em;
     padding: 0.5em 1.5em;
     font-size: 1em;
@@ -88,7 +88,7 @@ button:hover {
 
 /* Especificidad = 011 */
 button:active {
-    background-color: #5c4e4e;
+    background-color: #312c16;
     color: #ffffff;
 }
 
@@ -152,7 +152,7 @@ thead {
 /* Especificidad = 001 */
 th {
     padding: 0.6em;
-    border: 0.1em solid #5c4e4e;
+    border: 0.1em solid #312c16;
     text-align: center;
 }
 
@@ -172,6 +172,7 @@ tbody tr:nth-child(even) {
 /* Especificidad = 011 */
 tbody tr:hover {
     background-color: #a9b39a;
+    color: #000000;
 }
 
 /* Especificidad = 002 */
@@ -193,12 +194,11 @@ section video {
     /* Especificidad = 001 */
     section {
         padding: 1rem; /* redefinición por media query */
-        border-radius: 0.65rem; /* redefinición por media query */
     }
 
     /* Especificidad = 012 */
     body > p:first-of-type {
-        display: none; /* redefinición por media query */
+        display: none;
     }
 
     /* Especificidad = 001 */
