@@ -20,47 +20,48 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- altitud >= 0 -->
     <xs:simpleType name="altitudType">
         <xs:restriction base="xs:integer">
             <xs:minInclusive value="0"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- distancia o longitud positiva -->
     <xs:simpleType name="distanciaType">
         <xs:restriction base="xs:decimal">
             <xs:minInclusive value="0.01"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- fecha DD-MM-YYYY -->
+    
     <xs:simpleType name="fechaType">
         <xs:restriction base="xs:string">
             <xs:pattern value="\d{2}-\d{2}-\d{4}"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- hora HH:MM -->
+    
+    
     <xs:simpleType name="horaType">
         <xs:restriction base="xs:string">
             <xs:pattern value="([01]\d|2[0-3]):[0-5]\d"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- tiempo MM:SS.mmm -->
+
+    
     <xs:simpleType name="tiempoType">
         <xs:restriction base="xs:string">
             <xs:pattern value="[0-5]\d:[0-5]\d\.\d{3}"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- URL válida -->
+
     <xs:simpleType name="urlType">
         <xs:restriction base="xs:anyURI"/>
     </xs:simpleType>
 
-    <!-- ============================================================ -->
+    
+    
 
     <xs:element name="circuito">
         <xs:complexType>

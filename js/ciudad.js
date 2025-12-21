@@ -185,7 +185,6 @@ class Ciudad {
             dias: {}
         };
 
-        // Inicializamos los días
         for (let i = 0; i < json.hourly.time.length; i++) {
 
             const dia = json.hourly.time[i].split("T")[0];
